@@ -1,0 +1,17 @@
+---
+- name: Restart Shadowsocks
+  service:
+    name: "shadowsocks-libev"
+    state: restarted
+  # when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+# - name: Restart Shadowsocks
+#   command: "rc-service shadowsocks-libev restart"
+#   when: ansible_distribution == "Gentoo"
+
+## Почему-то не срабатывает
+# - name: Restart Shadowsocks
+#   ansible.builtin.service:
+#     name: "shadowsocks-libev"
+#     state: started
+#   when: ansible_distribution == "Gentoo"

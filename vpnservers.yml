@@ -1,0 +1,11 @@
+- hosts: vpnservers
+  vars_files:
+    - vars.yml
+  roles:
+    - shadowsocks
+  become: yes
+  vars:
+    shadowsocks_server_port: "{{ shadowsocks_port }}"
+    shadowsocks_password: "{{ shadowsocks_password }}"
+    shadowsocks_encryption_method: "aes-256-cfb"
+    shadowsocks_timeout: 300

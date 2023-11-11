@@ -1,0 +1,8 @@
+# vscode & env
+.venv/
+.vscode/
+.DS_Store
+
+# configs
+ansible.cfg
+production

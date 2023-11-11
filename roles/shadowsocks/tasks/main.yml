@@ -1,0 +1,13 @@
+---
+- name: Install Shadowsocks on Gentoo
+  include_tasks: ./gentoo/main.yml
+  when: ansible_distribution == "Gentoo"
+
+- name: Install Shadowsocks on Debian/Ubuntu
+  include_tasks: ./ubuntu-debian/main.yml
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- name: Restart service
+  ansible.builtin.service:
+    name: "shadowsocks-libev"
+    state: restarted

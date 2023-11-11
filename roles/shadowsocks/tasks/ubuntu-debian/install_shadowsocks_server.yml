@@ -1,0 +1,5 @@
+---
+- name: Install Shadowsocks-Libev on Debian/Ubuntu
+  package:
+    name: shadowsocks-libev
+    state: present

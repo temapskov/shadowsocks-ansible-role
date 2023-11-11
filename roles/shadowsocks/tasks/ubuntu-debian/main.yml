@@ -1,0 +1,3 @@
+---
+- import_tasks: install_shadowsocks_server.yml
+- import_tasks: configure_shadowsocks_server.yml

@@ -1,0 +1,10 @@
+---
+- name: Create config directory
+  ansible.builtin.file:
+    path: /etc/shadowsocks-libev
+    state: directory
+
+- name: Configure Shadowsocks
+  ansible.builtin.template:
+    src: shadowsocks.json.j2
+    dest: "/etc/shadowsocks-libev/shadowsocks.json"

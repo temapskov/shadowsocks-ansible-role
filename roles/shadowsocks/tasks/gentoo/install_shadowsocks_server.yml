@@ -1,0 +1,24 @@
+---
+- name: Add net-proxy/shadowsocks-libev to package.accept_keywords on Gentoo
+  lineinfile:
+    path: /etc/portage/package.accept_keywords
+    line: "{{ item }}"
+  loop:
+    - "net-proxy/shadowsocks-libev ~amd64"
+    - "net-libs/libbloom ~amd64"
+    - "net-libs/libcork ~amd64"
+    - "net-libs/libcorkipset ~amd64"
+
+- name: Install Shadowsocks-Libev on Gentoo
+  portage:
+    package: shadowsocks-libev
+    state: present
+
+- name: Create open-rc service from template
+  ansible.builtin.template:
+    src: open-rc-service.j2
+    dest: /etc/init.d/shadowsocks-libev
+    mode: '0755'
+
+- name: Add shadowsocks-libev to rc-update
+  command: rc-update add shadowsocks-libev default
