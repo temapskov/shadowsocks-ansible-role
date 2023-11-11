@@ -75,3 +75,6 @@ shadowsocks_password: "password"
 ```bash
 ansible-playbook -i production site.yml --ask-vault-pass
 ```
+
+## Клиент
+[Настройка клиента iOS](client.md)
